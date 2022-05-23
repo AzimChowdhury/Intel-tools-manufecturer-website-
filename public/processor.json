@@ -1,0 +1,44 @@
+[
+    {
+        "name": "core i3",
+        "image": "https://i.ibb.co/5YYgMZC/Qa8nP.jpg",
+        "description": "Intel® Core™ i3-1215U Processor (10M Cache, up to 4.40 GHz, with IPU). Launched, Q1'22, 6, 4.40 GHz ; Intel® Core™ i3-1215U Processor (10M Cache, up to 4.40 GHz).",
+        "available": 20000,
+        "price": 175
+    },
+    {
+        "name": "core i5",
+        "image": "https://i.ibb.co/k34NqYb/intel-core-i5-10500-3-10ghz-cpu.jpg",
+        "description": "Intel® Core™ i5-12600HX Processor (18M Cache, up to 4.60 GHz). Launched, Q2'22, 12, 4.60 GHz ; Intel® Core™ i5-12450HX Processor (12M Cache, up to 4.40 GHz).",
+        "available": 22000,
+        "price": 230
+    },
+    {
+        "name": "core i7",
+        "image": "https://i.ibb.co/rdPM6X5/www-ubuy-com.jpg",
+        "description": "Intel® Core™ i7-12800HX Processor (25M Cache, up to 4.80 GHz). Launched, Q2'22, 16, 4.80 GHz ; Intel® Core™ i7-1265UE Processor (12M Cache, up to 4.70 GHz).",
+        "available": 18000,
+        "price": 260
+    },
+    {
+        "name": "core i9",
+        "image": "https://i.ibb.co/s3rc9Wd/61a-Mmen0c-FL-AC-SL1099.jpg",
+        "description": "Intel® Core™ i9 Processors. These processors feature an innovative architecture designed for intelligent performance (AI), immersive display and graphics",
+        "available": 16000,
+        "price": 300
+    },
+    {
+        "name": "Intel inside",
+        "image": "https://i.ibb.co/v1S4fpG/812mo-PE8-Ub-L-AC-SX466.jpg",
+        "description": "Intel® product specifications, features and compatibility quick reference guide and code name decoder. Compare products including processors, desktop boards",
+        "available": 2000,
+        "price": 110
+    },
+    {
+        "name": "Intel pentium",
+        "image": "https://i.ibb.co/2YCLk53/Intel-Pentium-badge-2020-Logo.jpg",
+        "description": "Pentium, family of microprocessors developed by Intel Corp. Introduced in 1993 as the successor to Intel's 80486 microprocessor, ",
+        "available": 6000,
+        "price": 100
+    }
+]
