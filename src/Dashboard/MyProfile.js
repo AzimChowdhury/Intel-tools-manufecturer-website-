@@ -6,10 +6,6 @@ import Spinner from '../Shared/Spinner';
 
 function MyProfile() {
     const [user, loading] = useAuthState(auth);
-    const { data, isLoading } = useQuery('userInfo', () => fetch(`http://localhost:5000/userInfo/${user.email}`).then(res => res.json()))
-    if (loading || isLoading) {
-        return <Spinner></Spinner>
-    }
     const updateInfo = (e) => {
         e.preventDefault();
         const email = user?.email;
@@ -18,6 +14,7 @@ function MyProfile() {
         const location = e.target.location.value;
         const number = e.target.number.value;
         const userInfo = { email, name, education, location, number }
+        console.log('userInfo', userInfo)
         fetch('http://localhost:5000/userInfo', {
             method: "PUT",
             headers: {
@@ -27,12 +24,15 @@ function MyProfile() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                data.acknowledged && refetch();
                 e.target.reset()
             })
     }
+    const { data, isLoading, refetch } = useQuery('userInfo', () => fetch(`http://localhost:5000/userInfo/${user.email}`).then(res => res.json()))
 
-    // console.log(data)
+    if (loading || isLoading) {
+        return <Spinner></Spinner>
+    }
 
     return (
         <div>

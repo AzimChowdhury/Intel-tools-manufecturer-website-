@@ -29,11 +29,7 @@ function Login() {
     if (user || gUser) {
         const intelUser = {
             email: user?.user?.email || gUser?.user?.email,
-            role: 'user',
-            name: '',
-            location: '',
-            education: '',
-            number: ''
+            role: 'user'
         }
         fetch('http://localhost:5000/user', {
             method: 'PUT',
