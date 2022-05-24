@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
@@ -22,12 +22,36 @@ function Login() {
         gError
     ] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/'
+
     if (user || gUser) {
-        navigate('/')
+        const intelUser = {
+            email: user?.user?.email || gUser?.user?.email,
+            role: 'user',
+            name: '',
+            location: '',
+            education: '',
+            number: ''
+        }
+        fetch('http://localhost:5000/user', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(intelUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                data.acknowledged && navigate(from, { replace: true });
+            })
+
+
     }
 
     if (loading || gLoading) {
-     return <Spinner/>
+        return <Spinner />
     }
 
     const handleLogin = (data) => {
@@ -44,7 +68,7 @@ function Login() {
                         <label class="label">
                             <span class="label-text">Email</span>
                         </label>
-                        <input name='email' type="text" placeholder="email" class="input input-bordered"
+                        <input name='email' type="email" placeholder="email" class="input input-bordered"
                             {...register("email", {
                                 required: {
                                     value: true,

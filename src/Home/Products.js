@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Spinner from '../Shared/Spinner';
 // import { useQuery } from 'react-query';
 
@@ -13,9 +14,10 @@ const Products = () => {
             .then(data => setProducts(data))
     }, [])
 
-    if(!products){
-        return  <Spinner/>
+    if (!products) {
+        return <Spinner />
     }
+
 
     return (
         <div>
@@ -32,7 +34,7 @@ const Products = () => {
                                 <p className='p-0 m-0'>Minimum order: <span className='font-bold'>{product.minimum} </span>  piece</p>
                                 <p className='p-0 m-0'>Price:<span className='font-bold'> $ {product.price} </span> </p>
                                 <div class="card-actions justify-start">
-                                    <button class="btn btn-sm btn-primary text-white">Purchase</button>
+                                    <Link to={`/purchase/${product._id}`}> <button class="btn btn-sm btn-primary text-white">Purchase</button></Link>
                                 </div>
                             </div>
                         </div>

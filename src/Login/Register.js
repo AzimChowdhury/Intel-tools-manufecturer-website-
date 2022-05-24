@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init'
@@ -26,13 +26,35 @@ function Register() {
     const handleRegister = data => {
         createUserWithEmailAndPassword(data.email, data.password)
     }
-    if(loading ||gLoading){
-        <Spinner/>
+    if (loading || gLoading) {
+        <Spinner />
     }
 
-    
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/'
+
     if (user || gUser) {
-        navigate('/')
+        const intelUser = {
+            email: user?.user?.email || gUser?.user?.email,
+            role: 'user',
+            name: '',
+            location: '',
+            education: '',
+            number: ''
+        }
+        fetch('http://localhost:5000/user', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(intelUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                data.acknowledged && navigate(from, { replace: true });
+            })
+
+
     }
     return (
 
