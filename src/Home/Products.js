@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import Spinner from '../Shared/Spinner';
 // import { useQuery } from 'react-query';
 
 
@@ -13,9 +13,13 @@ const Products = () => {
             .then(data => setProducts(data))
     }, [])
 
+    if(!products){
+        return  <Spinner/>
+    }
+
     return (
         <div>
-            <h1 className='mt-16 text-3xl text-center'>Choose the best processor for your company</h1>
+            <h1 className='mt-16 text-3xl text-center'>Choose the best processor for your brand</h1>
             <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-4 justify-items-center mt-12'>
                 {
                     products.map(product => <>

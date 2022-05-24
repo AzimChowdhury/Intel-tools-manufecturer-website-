@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init'
+import Spinner from '../Shared/Spinner';
+
 
 function Register() {
-    const navigate =useNavigate();
+    const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const [
@@ -14,12 +16,22 @@ function Register() {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [
+        signInWithGoogle,
+        gUser,
+        gLoading,
+        gError
+    ] = useSignInWithGoogle(auth);
 
     const handleRegister = data => {
         createUserWithEmailAndPassword(data.email, data.password)
     }
+    if(loading ||gLoading){
+        <Spinner/>
+    }
 
-    if(user){
+    
+    if (user || gUser) {
         navigate('/')
     }
     return (
@@ -96,12 +108,13 @@ function Register() {
                     </div>
                     <p className='text-sm  mt-2'>Already have an account? <Link to='/login'>Login now</Link> </p>
                     <p className='text-sm text-red-600'>{error ? error.message : ""}</p>
+                    <p className='text-sm text-red-600'>{gError ? gError.message : ""}</p>
                     <div class="form-control  mt-6">
                         <input type='submit' value='Register' class="btn btn-primary text-white" />
                     </div>
                 </form>
                 <div className='divider'>or</div>
-                <button className='btn btn-ghost '>Sign in with Google </button>
+                <button onClick={() => signInWithGoogle()} className='btn btn-ghost '>Sign in with Google </button>
             </div>
         </div>
 

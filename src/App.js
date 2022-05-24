@@ -3,7 +3,7 @@ import Home from "./Home/Home";
 import Navbar from "./Home/Navbar";
 import Login from "./Login/Login";
 import Register from "./Login/Register";
-
+import Footer from './Home/Footer';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register/>}></Route>
       </Routes>
+      <Footer/>
     </div>
   );
 }
