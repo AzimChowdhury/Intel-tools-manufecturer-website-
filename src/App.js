@@ -17,6 +17,7 @@ import NotFound from "./Shared/NotFound";
 import AllUsers from "./Dashboard/AllUsers";
 import AddProduct from "./Dashboard/AddProduct";
 import AllOrders from "./Dashboard/AllOrders";
+import RequireAdmin from "./Shared/RequireAdmin";
 
 
 function App() {
@@ -33,9 +34,9 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="myOrder" element={<MyOrders></MyOrders>}></Route>
           <Route path="addReview" element={<AddReview></AddReview>}></Route>
-          <Route path="users" element={<AllUsers></AllUsers>}></Route>
-          <Route path="addProduct" element={<AddProduct></AddProduct>}></Route>
-          <Route path="orders" element={<AllOrders></AllOrders>}></Route>
+          <Route path="users" element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
+          <Route path="addProduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+          <Route path="orders" element={<RequireAdmin><AllOrders></AllOrders></RequireAdmin>}></Route>
         </Route>
 
 

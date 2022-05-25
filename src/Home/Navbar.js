@@ -4,15 +4,16 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import auth from '../firebase.init';
 import userIcon from '../images/user.png';
-import useAdmin from '../Hooks/useAdmin';
+
 
 const Navbar = () => {
     const [user] = useAuthState(auth)
-    const [admin] = useAdmin(user?.email)
-    console.log(admin)
+
+
 
     const menu = <>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
         <li>{user ? <Link to='/dashboard'>Dashboard</Link> : ""}</li>
         <li><Link to='/portfolio'>Developer's Portfolio</Link></li>
         <li>{
