@@ -12,7 +12,7 @@ function Purchase() {
 
     const [user, loading] = useAuthState(auth);
     const { id } = useParams();
-    const { data, isLoading } = useQuery('product', () => fetch(`http://localhost:5000/purchase/${id}`).then(res => res.json()))
+    const { data, isLoading } = useQuery('product', () => fetch(`https://intel-server-azim.herokuapp.com/purchase/${id}`).then(res => res.json()))
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
 
@@ -33,7 +33,7 @@ function Purchase() {
             cost: price * quantity,
             status: 'unpaid'
         }
-        fetch('http://localhost:5000/order', {
+        fetch('https://intel-server-azim.herokuapp.com/order', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

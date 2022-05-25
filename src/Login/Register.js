@@ -35,10 +35,9 @@ function Register() {
 
     if (user || gUser) {
         const intelUser = {
-            email: user?.user?.email || gUser?.user?.email,
-            role: 'user'
+            email: user?.user?.email || gUser?.user?.email
         }
-        fetch('http://localhost:5000/user', {
+        fetch('https://intel-server-azim.herokuapp.com/user', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

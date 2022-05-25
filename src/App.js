@@ -12,6 +12,11 @@ import Dashboard from "./Dashboard/Dashboard";
 import MyProfile from "./Dashboard/MyProfile";
 import MyOrders from "./Dashboard/MyOrders";
 import AddReview from "./Dashboard/AddReview";
+import MyPortfolio from "./MyPortfolio/MyPortfolio";
+import NotFound from "./Shared/NotFound";
+import AllUsers from "./Dashboard/AllUsers";
+import AddProduct from "./Dashboard/AddProduct";
+import AllOrders from "./Dashboard/AllOrders";
 
 
 function App() {
@@ -23,15 +28,20 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register />}></Route>
 
-
+        {/* nested route for dashboard */}
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="myOrder" element={<MyOrders></MyOrders>}></Route>
           <Route path="addReview" element={<AddReview></AddReview>}></Route>
+          <Route path="users" element={<AllUsers></AllUsers>}></Route>
+          <Route path="addProduct" element={<AddProduct></AddProduct>}></Route>
+          <Route path="orders" element={<AllOrders></AllOrders>}></Route>
         </Route>
 
 
         <Route path='/purchase/:id' element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
+        <Route path='/portfolio' element={<MyPortfolio />}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer />
       <ToastContainer />

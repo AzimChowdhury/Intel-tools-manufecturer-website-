@@ -16,7 +16,7 @@ function AddReview() {
         const rating = e.target.ratings.value;
         const comment = e.target.comment.value;
         const review = { email: user.email, name, rating, comment }
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://intel-server-azim.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -7,7 +7,7 @@ import Spinner from '../Shared/Spinner';
 
 function MyOrders() {
     const [user, loading] = useAuthState(auth);
-    const { data, isLoading } = useQuery('orders', () => fetch(`http://localhost:5000/myOrder/${user.email}`).then(res => res.json()))
+    const { data, isLoading } = useQuery('orders', () => fetch(`https://intel-server-azim.herokuapp.com/myOrder/${user.email}`).then(res => res.json()))
     // console.log(data)
     if (isLoading || loading) {
         return <Spinner></Spinner>

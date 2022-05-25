@@ -21,6 +21,9 @@ function Dashboard() {
                         <li><Link to='/dashboard'>My profile</Link></li>
                         <li><Link to='/dashboard/myOrder'>My orders</Link></li>
                         <li><Link to='/dashboard/addReview'>Add a review</Link></li>
+                        <li><Link to='/dashboard/users'>All Users</Link></li>
+                        <li><Link to='/dashboard/addProduct'>Add a product</Link></li>
+                        <li><Link to='/dashboard/orders'>All Orders</Link></li>
                     </ul>
 
                 </div>
