@@ -4,13 +4,13 @@ import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner';
 
 function AllUsers() {
-    const { data, isLoading, refetch } = useQuery('user', () => fetch('http://localhost:5000/users').then(res => res.json()));
+    const { data, isLoading, refetch } = useQuery('user', () => fetch('https://intel-server-azim.herokuapp.com/users').then(res => res.json()));
     if (isLoading) {
         return <Spinner></Spinner>
     }
     const makeAdmin = (email) => {
 
-        fetch(`http://localhost:5000/makeAdmin/${email}`, {
+        fetch(`https://intel-server-azim.herokuapp.com/makeAdmin/${email}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
