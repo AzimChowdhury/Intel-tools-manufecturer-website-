@@ -56,8 +56,10 @@ function MyOrders() {
                                     <td>{d?.productName}</td>
                                     <td>{d.quantity}</td>
                                     <td>{d.cost}</td>
-                                    <td>{d.status === 'paid' ? 'tranx id' :
-                                        <Link to='/dashboard/payment'><button className='btn btn-primary btn-xs text-white'>Pay now</button></Link>
+                                    <td>{d.status === 'paid' ?
+                                        <span> {d?.transactionId ? <span>Transaction Id - <br /> {d.transactionId}</span> : 'paid'}</span>
+                                        :
+                                        <Link to={`/dashboard/payment/${d._id}`}><button className='btn btn-primary btn-xs text-white'>Pay now</button></Link>
                                     }
                                     </td>
                                     <td>{d.status === 'unpaid' ?
