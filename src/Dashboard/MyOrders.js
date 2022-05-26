@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 import Spinner from '../Shared/Spinner';
@@ -56,7 +57,9 @@ function MyOrders() {
                                     <td>{d.quantity}</td>
                                     <td>{d.cost}</td>
                                     <td>{d.status === 'paid' ? 'tranx id' :
-                                        <button className='btn-ghost'>Pay now</button>}</td>
+                                        <Link to='/dashboard/payment'><button className='btn btn-primary btn-xs text-white'>Pay now</button></Link>
+                                    }
+                                    </td>
                                     <td>{d.status === 'unpaid' ?
                                         <label onClick={() => { setProduct(d._id); setConfirm(false) }} for="my-modal" class="btn btn-xs text-white btn-primary modal-button">Delete order</label>
                                         : 'Paid'}</td>

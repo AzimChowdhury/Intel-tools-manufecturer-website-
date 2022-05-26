@@ -18,6 +18,9 @@ import AllUsers from "./Dashboard/AllUsers";
 import AddProduct from "./Dashboard/AddProduct";
 import AllOrders from "./Dashboard/AllOrders";
 import RequireAdmin from "./Shared/RequireAdmin";
+import Blogs from "./Blogs/Blogs";
+import ManageProducts from "./Dashboard/ManageProducts";
+import Payment from "./Dashboard/Payment";
 
 
 function App() {
@@ -28,15 +31,18 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register />}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
 
         {/* nested route for dashboard */}
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="myOrder" element={<MyOrders></MyOrders>}></Route>
           <Route path="addReview" element={<AddReview></AddReview>}></Route>
+          <Route path="payment" element={<Payment></Payment>}></Route>
           <Route path="users" element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
           <Route path="addProduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path="orders" element={<RequireAdmin><AllOrders></AllOrders></RequireAdmin>}></Route>
+          <Route path="manageProducts" element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
         </Route>
 
 

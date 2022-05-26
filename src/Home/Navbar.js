@@ -51,7 +51,7 @@ const Navbar = () => {
                 <Link to='/'><p class="  normal-case text-5xl font-semibold  ml-24">Intel</p></Link>
             </div>
 
-            <div class="navbar-end hidden  lg:flex">
+            <div class="navbar-end hidden w-full lg:flex">
                 <ul class="menu menu-horizontal p-0 text-xl">
                     {menu}
                 </ul>
