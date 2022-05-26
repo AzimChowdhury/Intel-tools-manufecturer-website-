@@ -24,6 +24,19 @@ function AllOrders() {
     if (isLoading) {
         return <Spinner></Spinner>
     }
+    const deliverOrder = (id) => {
+        fetch(`http://localhost:5000/deliver/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                data.acknowledged && toast('successfully  delivered an order')
+                refetch()
+            })
+    }
     return (
         <div>
             <h2 className='text-2xl font-semibold text-center text-primary my-3'>Total {data?.length} Orders</h2>
@@ -51,7 +64,8 @@ function AllOrders() {
                                     <td>{
                                         d.status === 'unpaid' ?
                                             <label onClick={() => { setProduct(d._id); setConfirm(false) }} for="my-modal" class="btn btn-xs text-white btn-primary modal-button">Delete order</label>
-                                            : 'paid'
+                                            : d?.delivery === 'pending' ?
+                                                <button onClick={() => deliverOrder(d._id)} className='btn btn-primary btn-sm text-white'>Delivered</button> : 'Shipped'
                                     }</td>
                                 </tr>
                             )
