@@ -4,9 +4,20 @@ import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner';
 
 function AllOrders() {
-    const { data, isLoading, refetch } = useQuery('order', () => fetch('https://intel-server-azim.herokuapp.com/orders').then(res => res.json()))
     const [confirm, setConfirm] = useState(false);
     const [product, setProduct] = useState('');
+
+    const { data, isLoading, refetch } = useQuery('order', () => fetch('https://intel-server-azim.herokuapp.com/orders', {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
+        }
+    }).then(res => res.json()))
+
+
+
+
     if (confirm && product) {
         fetch(`https://intel-server-azim.herokuapp.com/order/${product}`, {
             method: "DELETE",
