@@ -9,7 +9,7 @@ const Products = () => {
     // const { data } = useQuery('items', fetch('processor.json').then(res => res.json()))
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://intel-server-azim.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
