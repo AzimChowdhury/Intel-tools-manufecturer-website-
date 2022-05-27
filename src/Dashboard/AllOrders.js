@@ -80,7 +80,7 @@ function AllOrders() {
                                         d.status === 'unpaid' ?
                                             <label onClick={() => { setProduct(d._id); setConfirm(false) }} for="my-modal" class="btn btn-xs text-white btn-primary modal-button">Delete order</label>
                                             : d?.delivery === 'pending' ?
-                                                <button onClick={() => deliverOrder(d._id)} className='btn btn-primary btn-sm text-white'>Delivered</button> : 'Shipped'
+                                                <button onClick={() => deliverOrder(d._id)} className='btn btn-primary btn-sm text-white'>Delivery</button> : 'Shipped'
                                     }</td>
                                 </tr>
                             )
