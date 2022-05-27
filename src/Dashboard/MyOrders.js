@@ -9,12 +9,12 @@ import Spinner from '../Shared/Spinner';
 
 function MyOrders() {
     const [user, loading] = useAuthState(auth);
-    const { data, isLoading, refetch } = useQuery('orders', () => fetch(`https://intel-server-azim.herokuapp.com/myOrder/${user.email}`).then(res => res.json()))
+    const { data, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/myOrder/${user.email}`).then(res => res.json()))
 
     const [confirm, setConfirm] = useState(false);
     const [product, setProduct] = useState('');
     if (confirm && product) {
-        fetch(`https://intel-server-azim.herokuapp.com/order/${product}`, {
+        fetch(`http://localhost:5000/order/${product}`, {
             method: "DELETE",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("JWT-token")}`

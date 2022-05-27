@@ -10,7 +10,7 @@ function CheckoutForm({ data }) {
     const [trnxId, setTrnxId] = useState('');
     const { cost, _id, buyerEmail } = data;
     useEffect(() => {
-        fetch('https://intel-server-azim.herokuapp.com/createPaymentIntent', {
+        fetch('http://localhost:5000/createPaymentIntent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ function CheckoutForm({ data }) {
             setTrnxId(paymentIntent?.id)
             // console.log(paymentIntent.id, _id)
 
-            fetch(`https://intel-server-azim.herokuapp.com/payment/${_id}`, {
+            fetch(`http://localhost:5000/payment/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': "application/json"
