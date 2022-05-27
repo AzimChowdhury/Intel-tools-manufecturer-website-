@@ -31,7 +31,7 @@ function Login() {
     //     const intelUser = {
     //         email: user?.user?.email || gUser?.user?.email
     //     }
-    //     fetch('https://intel-server-azim.herokuapp.com/user', {
+    //     fetch('http://localhost:5000/user', {
     //         method: 'PUT',
     //         headers: {
     //             'content-type': 'application/json'
