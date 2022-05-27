@@ -4,7 +4,7 @@ import Spinner from '../Shared/Spinner';
 
 function Review() {
 
-    const { data, isLoading } = useQuery('review', () => fetch('http://localhost:5000/review').then(res => res.json()))
+    const { data, isLoading } = useQuery('review', () => fetch('https://intel-server-azim.herokuapp.com/review').then(res => res.json()))
 
     if (isLoading) {
         return <Spinner />

@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L3fM0DC4YjKBBRKbab7AOfqaclffBBDwXIOB
 
 function Payment() {
     const { id } = useParams()
-    const { data, isLoading } = useQuery('product', () => fetch(`http://localhost:5000/product/${id}`, {
+    const { data, isLoading } = useQuery('product', () => fetch(`https://intel-server-azim.herokuapp.com/product/${id}`, {
         method: "GET",
         headers: {
             'content-type': 'application/json',

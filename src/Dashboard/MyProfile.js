@@ -15,7 +15,7 @@ function MyProfile() {
         const number = e.target.number.value;
         const userInfo = { email, name, education, location, number }
         console.log('userInfo', userInfo)
-        fetch('http://localhost:5000/userInfo', {
+        fetch('https://intel-server-azim.herokuapp.com/userInfo', {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
@@ -29,7 +29,7 @@ function MyProfile() {
                 e.target.reset()
             })
     }
-    const { data, isLoading, refetch } = useQuery('userInfo', () => fetch(`http://localhost:5000/userInfo/${user.email}`).then(res => res.json()))
+    const { data, isLoading, refetch } = useQuery('userInfo', () => fetch(`https://intel-server-azim.herokuapp.com/userInfo/${user.email}`).then(res => res.json()))
 
     if (loading || isLoading) {
         return <Spinner></Spinner>

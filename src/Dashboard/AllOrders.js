@@ -4,11 +4,11 @@ import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner';
 
 function AllOrders() {
-    const { data, isLoading, refetch } = useQuery('order', () => fetch('http://localhost:5000/orders').then(res => res.json()))
+    const { data, isLoading, refetch } = useQuery('order', () => fetch('https://intel-server-azim.herokuapp.com/orders').then(res => res.json()))
     const [confirm, setConfirm] = useState(false);
     const [product, setProduct] = useState('');
     if (confirm && product) {
-        fetch(`http://localhost:5000/order/${product}`, {
+        fetch(`https://intel-server-azim.herokuapp.com/order/${product}`, {
             method: "DELETE",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
@@ -28,7 +28,7 @@ function AllOrders() {
         return <Spinner></Spinner>
     }
     const deliverOrder = (id) => {
-        fetch(`http://localhost:5000/deliver/${id}`, {
+        fetch(`https://intel-server-azim.herokuapp.com/deliver/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
