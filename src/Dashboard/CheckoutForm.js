@@ -10,19 +10,21 @@ function CheckoutForm({ data }) {
     const [trnxId, setTrnxId] = useState('');
     const { cost, _id, buyerEmail } = data;
     useEffect(() => {
-        fetch('https://intel-server-azim.herokuapp.com/createPaymentIntent', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ cost })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data?.clientSecret) {
-                    setClientSecret(data.clientSecret)
-                }
+        if (cost) {
+            fetch('https://intel-server-azim.herokuapp.com/createPaymentIntent', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ cost })
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data?.clientSecret) {
+                        setClientSecret(data.clientSecret)
+                    }
+                })
+        }
 
 
     }, [cost])
