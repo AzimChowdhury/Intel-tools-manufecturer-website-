@@ -4,7 +4,13 @@ import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner';
 
 function AllUsers() {
-    const { data, isLoading, refetch } = useQuery('user', () => fetch('https://intel-server-azim.herokuapp.com/users').then(res => res.json()));
+    const { data, isLoading, refetch } = useQuery('user', () => fetch('https://intel-server-azim.herokuapp.com/users', {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
+        }
+    }).then(res => res.json()));
     if (isLoading) {
         return <Spinner></Spinner>
     }
