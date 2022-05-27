@@ -16,7 +16,8 @@ function AddProduct() {
         fetch('https://intel-server-azim.herokuapp.com/addProduct', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
             },
             body: JSON.stringify(product)
         })

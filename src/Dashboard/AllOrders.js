@@ -10,6 +10,9 @@ function AllOrders() {
     if (confirm && product) {
         fetch(`https://intel-server-azim.herokuapp.com/order/${product}`, {
             method: "DELETE",
+            headers: {
+                "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -25,10 +28,11 @@ function AllOrders() {
         return <Spinner></Spinner>
     }
     const deliverOrder = (id) => {
-        fetch(`http://localhost:5000/deliver/${id}`, {
+        fetch(`https://intel-server-azim.herokuapp.com/deliver/${id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
             }
         })
             .then(res => res.json())

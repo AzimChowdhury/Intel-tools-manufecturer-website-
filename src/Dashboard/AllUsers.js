@@ -13,7 +13,8 @@ function AllUsers() {
         fetch(`https://intel-server-azim.herokuapp.com/makeAdmin/${email}`, {
             method: "PUT",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
             }
 
         })

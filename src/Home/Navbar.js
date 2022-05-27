@@ -28,7 +28,10 @@ const Navbar = () => {
                     <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-primary rounded-box w-52 mt-40 ">
                         {user.displayName ? <li><p>{user?.displayName}</p></li> : ''}
                         <li><p className='text-sm'>{user?.email}</p></li>
-                        <li><button className='btn btn-secondary' onClick={() => signOut(auth)}>Log Out</button></li>
+                        <li><button className='btn btn-secondary' onClick={() => {
+                            signOut(auth);
+                            localStorage.removeItem('JWT-token')
+                        }}>Log Out</button></li>
                     </ul>
                 </div>
                 :

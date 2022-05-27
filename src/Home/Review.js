@@ -4,10 +4,10 @@ import Spinner from '../Shared/Spinner';
 
 function Review() {
 
-    const { data,isLoading } = useQuery('review', () => fetch('https://intel-server-azim.herokuapp.com/review').then(res => res.json()))
+    const { data, isLoading } = useQuery('review', () => fetch('https://intel-server-azim.herokuapp.com/review').then(res => res.json()))
 
-    if(isLoading){
-        return <Spinner/>
+    if (isLoading) {
+        return <Spinner />
     }
     return (
         <div className='mx-28'>

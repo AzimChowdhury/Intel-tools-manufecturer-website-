@@ -16,6 +16,9 @@ function MyOrders() {
     if (confirm && product) {
         fetch(`https://intel-server-azim.herokuapp.com/order/${product}`, {
             method: "DELETE",
+            headers: {
+                "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
+            }
         })
             .then(res => res.json())
             .then(data => {

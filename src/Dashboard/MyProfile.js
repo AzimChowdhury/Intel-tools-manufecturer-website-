@@ -18,7 +18,8 @@ function MyProfile() {
         fetch('https://intel-server-azim.herokuapp.com/userInfo', {
             method: "PUT",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
             },
             body: JSON.stringify(userInfo)
         })

@@ -19,7 +19,8 @@ function AddReview() {
         fetch('https://intel-server-azim.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
             },
             body: JSON.stringify(review)
         })

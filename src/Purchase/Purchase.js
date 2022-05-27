@@ -36,7 +36,8 @@ function Purchase() {
         fetch('https://intel-server-azim.herokuapp.com/order', {
             method: "POST",
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
             },
             body: JSON.stringify(order)
         })

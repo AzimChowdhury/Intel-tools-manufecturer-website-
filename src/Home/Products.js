@@ -14,7 +14,7 @@ const Products = () => {
             .then(data => setProducts(data))
     }, [])
 
-    if (!products) {
+    if (products.length === 0) {
         return <Spinner />
     }
 
@@ -24,7 +24,7 @@ const Products = () => {
             <h1 className='mt-16 text-3xl text-center'>Choose the best processor for your brand</h1>
             <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-4 justify-items-center mt-12'>
                 {
-                    products.map(product => <>
+                    products?.map(product => <>
                         <div class="card card-side max-w-xl max-h-96 bg-base-100 mb-4 shadow-2xl">
                             <figure className='p-4 w-96'><img src={product.image} alt="intel" /></figure>
                             <div class="card-body">
