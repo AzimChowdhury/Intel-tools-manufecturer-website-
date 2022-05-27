@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init'
 import Spinner from '../Shared/Spinner';
+import useToken from '../Hooks/useToken';
 
 
 function Register() {
@@ -33,24 +34,13 @@ function Register() {
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/'
 
-    if (user || gUser) {
-        const intelUser = {
-            email: user?.user?.email || gUser?.user?.email
-        }
-        fetch('https://intel-server-azim.herokuapp.com/user', {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(intelUser)
-        })
-            .then(res => res.json())
-            .then(data => {
-                data.acknowledged && navigate(from, { replace: true });
-            })
 
+    const [token] = useToken(user || gUser);
 
+    if (token) {
+        navigate(from, { replace: true });
     }
+
     return (
 
         <div class="card lg:w-1/4 mx-auto mt-4  shadow-2xl bg-base-100">
