@@ -70,20 +70,25 @@ function AllOrders() {
                     <tbody>
                         {/* <!-- row 1 --> */}
                         {
-                            data?.map((d, index) =>
-                                <tr>
-                                    <th>{index + 1}</th>
-                                    <td>{d.productName}</td>
-                                    <td>{d.quantity}</td>
-                                    <td>{d.buyerEmail}</td>
-                                    <td>{
-                                        d.status === 'unpaid' ?
-                                            <label onClick={() => { setProduct(d._id); setConfirm(false) }} for="my-modal" class="btn btn-xs text-white btn-primary modal-button">Delete order</label>
-                                            : d?.delivery === 'pending' ?
-                                                <button onClick={() => deliverOrder(d._id)} className='btn btn-primary btn-sm text-white'>Delivery</button> : 'Shipped'
-                                    }</td>
-                                </tr>
-                            )
+
+                            data ?
+
+                                data?.map((d, index) =>
+                                    <tr>
+                                        <th>{index + 1}</th>
+                                        <td>{d.productName}</td>
+                                        <td>{d.quantity}</td>
+                                        <td>{d.buyerEmail}</td>
+                                        <td>{
+                                            d.status === 'unpaid' ?
+                                                <label onClick={() => { setProduct(d._id); setConfirm(false) }} for="my-modal" class="btn btn-xs text-white btn-primary modal-button">Delete order</label>
+                                                : d?.delivery === 'pending' ?
+                                                    <button onClick={() => deliverOrder(d._id)} className='btn btn-primary btn-sm text-white'>Delivery</button> : 'Shipped'
+                                        }</td>
+                                    </tr>
+                                )
+
+                                : ''
                         }
 
                     </tbody>

@@ -18,7 +18,7 @@ import AllUsers from "./Dashboard/AllUsers";
 import AddProduct from "./Dashboard/AddProduct";
 import AllOrders from "./Dashboard/AllOrders";
 import RequireAdmin from "./Shared/RequireAdmin";
-import Blogs from "./Blogs/Blogs";
+
 import ManageProducts from "./Dashboard/ManageProducts";
 import Payment from "./Dashboard/Payment";
 
