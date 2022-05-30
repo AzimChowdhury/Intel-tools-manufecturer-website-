@@ -31,7 +31,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register />}></Route>
-        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+
 
         {/* nested route for dashboard */}
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
