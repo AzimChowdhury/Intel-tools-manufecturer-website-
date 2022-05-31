@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import auth from '../firebase.init';
 import userIcon from '../images/user.png';
+import logo from '../images/logo.png';
 
 
 const Navbar = () => {
@@ -51,7 +52,9 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <Link to='/'><p class="  normal-case text-5xl font-semibold  ml-24">Intel</p></Link>
+                <Link to='/'><p class="  normal-case text-5xl font-semibold  ml-24">
+                    <img className='max-h-20 w-60' src={logo} alt="" />
+                </p></Link>
             </div>
 
             <div class="navbar-end hidden w-full lg:flex">
