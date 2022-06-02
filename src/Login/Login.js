@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Spinner from '../Shared/Spinner';
 import useToken from '../Hooks/useToken';
+import show from '../images/view.png';
+import hide from '../images/hide.png';
 
 
 function Login() {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [view, setView] = useState(false);
+
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -27,24 +32,6 @@ function Login() {
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/'
 
-    // if (user || gUser) {
-    //     const intelUser = {
-    //         email: user?.user?.email || gUser?.user?.email
-    //     }
-    //     fetch('https://intel-server-azim.herokuapp.com/user', {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(intelUser)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             data.acknowledged && navigate(from, { replace: true });
-    //         })
-
-
-    // }
     const [token] = useToken(user || gUser);
 
     if (token) {
@@ -88,9 +75,14 @@ function Login() {
                     </div>
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Password</span>
+                            <span class="label-text">
+                                Password
+                                <label onClick={() => setView(!view)} className='btn btn-ghost ml-1 btn-xs'>
+                                    <img className='w-4' src={view ? show : hide} alt=''></img>
+                                </label>
+                            </span>
                         </label>
-                        <input name='password' type="password" placeholder="password" class="input input-bordered"
+                        <input name='password' type={view ? "text" : 'password'} placeholder="password" class="input input-bordered"
                             {...register("password", {
                                 required: {
                                     value: true,

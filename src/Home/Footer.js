@@ -9,23 +9,23 @@ function Footer() {
   </div> 
   <div>
     <span class="footer-title">Services</span> 
-    <a class="link link-hover">Branding</a> 
-    <a class="link link-hover">Design</a> 
-    <a class="link link-hover">Marketing</a> 
-    <a class="link link-hover">Advertisement</a>
+    <p class="link link-hover">Branding</p> 
+    <p class="link link-hover">Design</p> 
+    <p class="link link-hover">Marketing</p> 
+    <p class="link link-hover">Advertisement</p>
   </div> 
   <div>
     <span class="footer-title">Company</span> 
-    <a class="link link-hover">About us</a> 
-    <a class="link link-hover">Contact</a> 
-    <a class="link link-hover">Jobs</a> 
-    <a class="link link-hover">Press kit</a>
+    <p class="link link-hover">About us</p> 
+    <p class="link link-hover">Contact</p> 
+    <p class="link link-hover">Jobs</p> 
+    <p class="link link-hover">Press kit</p>
   </div> 
   <div>
     <span class="footer-title">Legal</span> 
-    <a class="link link-hover">Terms of use</a> 
-    <a class="link link-hover">Privacy policy</a> 
-    <a class="link link-hover">Cookie policy</a>
+    <p class="link link-hover">Terms of use</p> 
+    <p class="link link-hover">Privacy policy</p> 
+    <p class="link link-hover">Cookie policy</p>
   </div>
 </footer>
     )
