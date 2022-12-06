@@ -7,7 +7,7 @@ const useToken = user => {
 
         const intelUser = { email: email };
         if (email) {
-            fetch(`https://intel-server-azim.herokuapp.com/user`, {
+            fetch(`https://intel-server.vercel.app/user`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

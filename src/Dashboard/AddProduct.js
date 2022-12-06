@@ -13,7 +13,7 @@ function AddProduct() {
         const price = e.target.price.value;
         const product = { image, name, minimum, available, description, price };
         // console.log(product)
-        fetch('https://intel-server-azim.herokuapp.com/addProduct', {
+        fetch('https://intel-server.vercel.app/addProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

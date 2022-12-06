@@ -6,7 +6,7 @@ function ManageProducts() {
     const [confirm, setConfirm] = useState(false);
     const [product, setProduct] = useState('');
 
-    const { data, isLoading, refetch } = useQuery('products', () => fetch('https://intel-server-azim.herokuapp.com/products').then(res => res.json()))
+    const { data, isLoading, refetch } = useQuery('products', () => fetch('https://intel-server.vercel.app/products').then(res => res.json()))
 
     if (isLoading) {
         return <Spinner></Spinner>
@@ -14,7 +14,7 @@ function ManageProducts() {
 
 
     if (confirm && product) {
-        fetch(`https://intel-server-azim.herokuapp.com/product/${product}`, {
+        fetch(`https://intel-server.vercel.app/product/${product}`, {
             method: "DELETE",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("JWT-token")}`

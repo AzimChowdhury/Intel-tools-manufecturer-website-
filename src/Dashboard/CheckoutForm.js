@@ -11,7 +11,7 @@ function CheckoutForm({ data }) {
     const { cost, _id, buyerEmail } = data;
     useEffect(() => {
         if (cost) {
-            fetch('https://intel-server-azim.herokuapp.com/createPaymentIntent', {
+            fetch('https://intel-server.vercel.app/createPaymentIntent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -73,7 +73,7 @@ function CheckoutForm({ data }) {
             setTrnxId(paymentIntent?.id)
             // console.log(paymentIntent.id, _id)
 
-            fetch(`https://intel-server-azim.herokuapp.com/payment/${_id}`, {
+            fetch(`https://intel-server.vercel.app/payment/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': "application/json"
