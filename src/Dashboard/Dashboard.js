@@ -3,12 +3,17 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
 import auth from '../firebase.init';
 import useAdmin from '../Hooks/useAdmin';
+import Spinner from '../Shared/Spinner';
 
 
 function Dashboard() {
 
-    const [user] = useAuthState(auth)
-    const [admin] = useAdmin(user?.email)
+    const [user,loading] = useAuthState(auth)
+    const [admin,aLoading] = useAdmin(user?.email)
+
+    if(loading,aLoading){
+        return <Spinner/>
+    }
 
     return (
         <div>

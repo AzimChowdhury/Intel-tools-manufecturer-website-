@@ -1,9 +1,11 @@
 import React from 'react'
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner';
 
 function AllUsers() {
+    const navigate = useNavigate()
     const { data, isLoading, refetch } = useQuery('user', () => fetch('https://intel-server.vercel.app/users', {
         method: 'GET',
         headers: {
@@ -11,7 +13,10 @@ function AllUsers() {
             "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
         }
     }).then(res => res.json()));
-    if (isLoading) {
+
+   
+    
+    if (isLoading || !data) {
         return <Spinner></Spinner>
     }
     const makeAdmin = (email) => {
@@ -30,6 +35,11 @@ function AllUsers() {
                 refetch();
             })
     }
+
+    if(data?.message == 'forbidden'){
+        navigate('/dashboard')
+    }
+
     return (
         <div>
             <h2 className='text-3xl font-semibold text-primary text-center m-4'>Total  {data?.length} User</h2>
@@ -55,7 +65,7 @@ function AllUsers() {
                                     <td>
                                         {
                                             d?.role === "admin" ? "Admin" :
-                                                <button onClick={() => makeAdmin(d.email)} className='btn btn-primary btn-xs text-white'>Make Admin</button>
+                                                <button onClick={() => makeAdmin(d?.email)} className='btn btn-primary btn-xs text-white'>Make Admin</button>
                                         }
                                     </td>
                                 </tr>)
