@@ -52,9 +52,9 @@ function Purchase() {
     return (
         <div>
             <h1 className='mt-4 text-3xl text-center'>Confirm your purchase order</h1>
-            <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-4 justify-items-center mt-8 lg:mx-20'>
+            <div className='grid lg:grid-cols-2 grid-cols-1 gap-4 justify-items-center mt-8 lg:mx-20'>
 
-                <div class="card card-side block w-96 lg:max-h-lg bg-base-100 mb-4 "  style={{boxShadow:'10px 10px 10px 10px #d4d4d4'}}>
+                <div class="card card-side block lg:w-96 w-72 lg:max-h-lg bg-base-100 mb-4 "  style={{boxShadow:'10px 10px 10px 10px #d4d4d4'}}>
                     <figure className='p-10 w-full'><img src={image} alt="intel" /></figure>
                     <div class="card-body">
                         <h2 class="card-title font-bold text-2xl">{name}</h2>
@@ -66,7 +66,7 @@ function Purchase() {
                     </div>
                 </div>
 
-                <form onSubmit={handleSubmit(handlePurchase)} class="card card-side  w-96 lg:max-h-lg bg-base-100 mb-4  "  style={{boxShadow:'10px 10px 10px 10px #d4d4d4'}}>
+                <form onSubmit={handleSubmit(handlePurchase)} class="card card-side  lg:w-96 w-72 lg:max-h-lg bg-base-100 mb-4  "  style={{boxShadow:'10px 10px 10px 10px #d4d4d4'}}>
                     <div class="card-body">
                         <p className='text-xl font-semibold'>{user.displayName ? <span>Name :  {user.displayName}</span> : ""}</p>
                         <div class="form-control">
