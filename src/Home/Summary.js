@@ -8,12 +8,12 @@ function Summary() {
     ]
     return (
         
-        <div className='m-20 mx-32'>
+        <div className='m-20 lg:mx-32 mx-0'>
              <h1 className='text-3xl text-center m-10'>Overview</h1>
-            <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-8 justify-items-center'>
+            <div className='grid lg:grid-cols-3  grid-cols-1 lg:gap-8 gap-0 justify-items-center'>
                 {
                     data.map(d=>
-                    <div class="card w-72 bg-base-100 shadow-2xl">
+                    <div class="card lg:w-72 w-64 bg-base-100 shadow-2xl mb-5">
                     <figure class="px-10 pt-10">
                         <img className='w-full' src={d.img} alt="Shoes" class="rounded-xl" />
                     </figure>

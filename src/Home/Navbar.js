@@ -11,7 +11,7 @@ const Navbar = () => {
     const [user] = useAuthState(auth)
 
 
-
+console.log(user)
     const menu = <>
         <li><Link to='/'>Home</Link></li>
 
@@ -22,7 +22,7 @@ const Navbar = () => {
                 <div class="dropdown dropdown-hover dropdown-end bg-primary">
                     <label tabindex="0" class=" rounded-full">
                         {user.photoURL ?
-                            <img className='w-16 rounded-full' src={user?.photoURL} alt='' />
+                            <img className='w-16 rounded-full' src={user.photoURL} alt='' />
                             :
                             <img className='w-16 rounded-full' src={userIcon} alt='' />}
                     </label>

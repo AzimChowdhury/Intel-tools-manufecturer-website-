@@ -10,12 +10,12 @@ function Review() {
         return <Spinner />
     }
     return (
-        <div className='mx-28'>
+        <div className='lg:mx-28 mx-4'>
             <h1 className='text-3xl text-center m-12'>Reviews</h1>
-            <div className='grid lg:grid-cols-3 gap-10 sm:grid-cols-1  justify-items-center'>
+            <div className='grid lg:grid-cols-3 gap-10 sm:grid-cols-1   justify-items-center'>
                 {
                     data?.map(d =>
-                        <div class="card lg:max-w-lg bg-base-100 shadow-2xl">
+                        <div style={{width:"310px"}} class="card  bg-base-100 shadow-2xl">
                             <div class="card-body">
                                 <h2 class="card-title">{d.name}</h2>
                                 <p>Ratings: {d.rating}/5</p>

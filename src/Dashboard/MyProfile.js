@@ -37,7 +37,7 @@ function MyProfile() {
 
     return (
         <div>
-            <div className='text-center mt-4 '>
+            <div className='text-center mt-4 mx-3'>
                 <h1 className='text-primary text-4xl font-bold'>{user?.displayName || data.name}</h1>
                 <h2 className='text-primary text-2xl font-semibold'>{user?.email}</h2>
                 {data.education ? <span className='pr-6 text-primary'>Education : {data.education}</span> : ''}
@@ -46,26 +46,26 @@ function MyProfile() {
                 <p>Update your information in this form </p>
             </div>
             <form onSubmit={updateInfo}>
-                <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-5 mx-20 justify-items-center'>
+                <div className='grid lg:grid-cols-2 grid-cols-1 gap-5  justify-items-center'>
                     <div>
                         <p className='mt-4'>Name: <br />
-                            <input className='input input-bordered w-96' type="text" name="name" placeholder='Name' required />
+                            <input className='input input-bordered w-72 lg:w-96' type="text" name="name" placeholder='Name' required />
                         </p>
                         <p className='mt-4'>Education quality: <br />
-                            <input className='input input-bordered w-96' type="text" name="education" placeholder='Education quality' required />
+                            <input className='input input-bordered w-72 lg:w-96' type="text" name="education" placeholder='Education quality' required />
                         </p>
                     </div>
                     <div>
                         <p className='mt-4'>Location: <br />
-                            <input className='input input-bordered w-96' type="text" name="location" placeholder='Location' required />
+                            <input className='input input-bordered w-72 lg:w-96' type="text" name="location" placeholder='Location' required />
                         </p>
                         <p className='mt-4'>Phone number: <br />
-                            <input className='input input-bordered w-96' type="number" name="number" placeholder='Phone number' required />
+                            <input className='input input-bordered w-72 lg:w-96' type="number" name="number" placeholder='Phone number' required />
                         </p>
                     </div>
                 </div>
                 <div className='w-full text-center'>
-                    <input className='btn btn-primary text-white w-36 m-4' type="submit" value="Update" />
+                    <input className='btn btn-primary text-white w-72 lg:w-36 m-4' type="submit" value="Update" />
                 </div>
             </form>
 
