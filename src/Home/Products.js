@@ -29,7 +29,7 @@ const Products = () => {
                             <figure className='lg:p-4 sm:p-1'>
                                 <img className=' lg:w-48 w-32' src={product.image} alt="intel" />
                             </figure>
-                            <div class="card-body">
+                            <div class="card-body mt-1 pt-2">
                                 <h2 class="card-title font-bold text-2xl">{product.name}</h2>
                                 <p><small>{product.description}</small></p>
                                 <p className='p-0 m-0'>Available: <span className='font-bold'>{product.available} </span> piece</p>

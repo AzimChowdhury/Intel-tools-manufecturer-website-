@@ -47,7 +47,7 @@ function App() {
 
 
         <Route path='/purchase/:id' element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
-        <Route path='/portfolio' element={<MyPortfolio />}></Route>
+        {/* <Route path='/portfolio' element={<MyPortfolio />}></Route> */}
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer />

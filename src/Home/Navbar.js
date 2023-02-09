@@ -16,7 +16,7 @@ console.log(user)
         <li><Link to='/'>Home</Link></li>
 
         <li>{user ? <Link to='/dashboard'>Dashboard</Link> : ""}</li>
-        <li><Link to='/portfolio'>Developer's Portfolio</Link></li>
+        <li><a href='https://azim-profile.netlify.app/' target='_blank' rel="noreferrer">Developer's Portfolio</a></li>
         <li>{
             user ?
                 <div class="dropdown dropdown-hover dropdown-end bg-primary">

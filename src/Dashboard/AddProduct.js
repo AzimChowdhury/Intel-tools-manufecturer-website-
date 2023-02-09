@@ -31,30 +31,30 @@ function AddProduct() {
     return (
         <div className='w-3/4 mx-auto my-10'>
             <h2 className='text-3xl text-center font-semibold mb-8 text-primary'>Add a product</h2>
-            <form onSubmit={handleAddProduct} className='grid lg:grid-cols-2 sm:grid-cols-1 gap-10'>
+            <form onSubmit={handleAddProduct} className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
                 <div>
                     <p className='mt-3'>Select an image <br />
-                        <input className='input input-bordered w-96' placeholder='image url' required type="text" name="image" />
+                        <input className='input input-bordered lg:w-96 w-72' placeholder='image url' required type="text" name="image" />
                     </p>
                     <p className='mt-3'>Product Name <br />
-                        <input className='input input-bordered w-96' required type="text" placeholder='product name' name="name" />
+                        <input className='input input-bordered lg:w-96 w-72' required type="text" placeholder='product name' name="name" />
                     </p>
                     <p className='mt-3'>Minimum order quantity <br />
-                        <input className='input input-bordered w-96' required type="number" placeholder='minimum order quantity' name="minimum" />
+                        <input className='input input-bordered lg:w-96 w-72' required type="number" placeholder='minimum order quantity' name="minimum" />
                     </p>
                     <p className='mt-3'>Available <br />
-                        <input className='input input-bordered w-96' required type="number" placeholder='available product' name="available" />
+                        <input className='input input-bordered lg:w-96 w-72' required type="number" placeholder='available product' name="available" />
                     </p>
                 </div>
                 <div>
                     <p className='mt-3'>Description <br />
-                        <textarea className='textarea textarea-bordered w-96' required type="text" placeholder='product description' name="description" />
+                        <textarea className='textarea textarea-bordered lg:w-96 w-72' required type="text" placeholder='product description' name="description" />
                     </p>
                     <p className='mt-3'>Price <br />
-                        <input className='input input-bordered w-96' required type="number" placeholder='price' name="price" />
+                        <input className='input input-bordered lg:w-96 w-72' required type="number" placeholder='price' name="price" />
                     </p>
                     <p>
-                        <input className='btn btn-primary w-96 mt-16' required type="submit" value='Add Product' />
+                        <input className='btn btn-primary lg:w-96 w-72 mt-16' required type="submit" value='Add Product' />
                     </p>
                 </div>
             </form>
