@@ -15,7 +15,7 @@ function Review() {
             <div className='grid lg:grid-cols-3 gap-10 sm:grid-cols-1   justify-items-center'>
                 {
                     data?.map(d =>
-                        <div style={{width:"310px"}} class="card  bg-base-100 shadow-2xl">
+                        <div  class="card  bg-base-100 "  style={{width:"310px", boxShadow:'10px 10px 10px 10px #d4d4d4'}}>
                             <div class="card-body">
                                 <h2 class="card-title">{d.name}</h2>
                                 <p>Ratings: {d.rating}/5</p>

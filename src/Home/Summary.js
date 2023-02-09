@@ -13,7 +13,7 @@ function Summary() {
             <div className='grid lg:grid-cols-3  grid-cols-1 lg:gap-8 gap-0 justify-items-center'>
                 {
                     data.map(d=>
-                    <div class="card lg:w-72 w-64 bg-base-100 shadow-2xl mb-5">
+                    <div class="card lg:w-72 w-64 bg-base-100  mb-5"  style={{boxShadow:'10px 10px 10px 10px #d4d4d4'}}>
                     <figure class="px-10 pt-10">
                         <img className='w-full' src={d.img} alt="Shoes" class="rounded-xl" />
                     </figure>

@@ -25,7 +25,7 @@ const Products = () => {
             <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-4 justify-items-center mt-12 lg:mx-10 mx-3'>
                 {
                     products?.map(product => <>
-                        <div class="card card-side max-w-xl   max-h-96 bg-base-100 mb-4 shadow-2xl">
+                        <div class="card card-side max-w-xl   max-h-96 bg-base-100 mb-4" style={{boxShadow:'10px 10px 10px 10px #d4d4d4'}}>
                             <figure className='lg:p-4 sm:p-1'>
                                 <img className=' lg:w-48 w-32' src={product.image} alt="intel" />
                             </figure>
