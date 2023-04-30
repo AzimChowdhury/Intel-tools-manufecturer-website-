@@ -4,7 +4,7 @@ const useAdmin = (email) => {
     const [admin, setAdmin] = useState(false);
     const [aLoading, setAloading] = useState(true);
 
-    fetch(`https://intel-server.vercel.app/user/${email}`)
+    fetch(`https://intel-server.onrender.com/user/${email}`)
         .then(res => res.json())
         .then(data => {
             if (data.role && data.role === 'admin') {

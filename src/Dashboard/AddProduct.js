@@ -13,7 +13,7 @@ function AddProduct() {
         const price = e.target.price.value;
         const product = { image, name, minimum, available, description, price };
         // console.log(product)
-        fetch('https://intel-server.vercel.app/addProduct', {
+        fetch('https://intel-server.onrender.com/addProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

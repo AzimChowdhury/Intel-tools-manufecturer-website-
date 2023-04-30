@@ -9,7 +9,7 @@ const Products = () => {
     // const { data } = useQuery('items', fetch('processor.json').then(res => res.json()))
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('https://intel-server.vercel.app/products')
+        fetch('https://intel-server.onrender.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])

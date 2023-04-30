@@ -7,7 +7,7 @@ function AllOrders() {
     const [confirm, setConfirm] = useState(false);
     const [product, setProduct] = useState('');
 
-    const { data, isLoading, refetch } = useQuery('order', () => fetch('https://intel-server.vercel.app/orders', {
+    const { data, isLoading, refetch } = useQuery('order', () => fetch('https://intel-server.onrender.com/orders', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -19,7 +19,7 @@ function AllOrders() {
 
 
     if (confirm && product) {
-        fetch(`https://intel-server.vercel.app/order/${product}`, {
+        fetch(`https://intel-server.onrender.com/order/${product}`, {
             method: "DELETE",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("JWT-token")}`
@@ -39,7 +39,7 @@ function AllOrders() {
         return <Spinner></Spinner>
     }
     const deliverOrder = (id) => {
-        fetch(`https://intel-server.vercel.app/deliver/${id}`, {
+        fetch(`https://intel-server.onrender.com/deliver/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -6,7 +6,7 @@ import Spinner from '../Shared/Spinner';
 
 function AllUsers() {
     const navigate = useNavigate()
-    const { data, isLoading, refetch } = useQuery('user', () => fetch('https://intel-server.vercel.app/users', {
+    const { data, isLoading, refetch } = useQuery('user', () => fetch('https://intel-server.onrender.com/users', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -21,7 +21,7 @@ function AllUsers() {
     }
     const makeAdmin = (email) => {
 
-        fetch(`https://intel-server.vercel.app/makeAdmin/${email}`, {
+        fetch(`https://intel-server.onrender.com/makeAdmin/${email}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
