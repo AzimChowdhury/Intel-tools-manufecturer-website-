@@ -4,7 +4,7 @@ import Spinner from '../Shared/Spinner';
 
 function Review() {
 
-    const { data, isLoading } = useQuery('review', () => fetch('https://intel-server.vercel.app/review' , { mode: 'no-cors' }).then(res => res.json()))
+    const { data, isLoading } = useQuery('review', () => fetch('https://intel-server.vercel.app/review').then(res => res.json()))
 
     if (isLoading) {
         return <Spinner />
