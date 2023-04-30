@@ -4,7 +4,15 @@ import Spinner from '../Shared/Spinner';
 
 function Review() {
 
-    const { data, isLoading } = useQuery('review', () => fetch('https://intel-server.vercel.app/review').then(res => res.json()))
+    const { data, isLoading } = useQuery('review', () => fetch('https://intel-server.vercel.app/review',
+        {
+            method: 'GET',
+            headers: {
+                "content-type": "application/json"
+            }
+
+        }
+    ).then(res => res.json()))
 
     if (isLoading) {
         return <Spinner />
@@ -15,7 +23,7 @@ function Review() {
             <div className='grid lg:grid-cols-3 gap-10 sm:grid-cols-1   justify-items-center'>
                 {
                     data?.map(d =>
-                        <div  class="card  bg-base-100 "  style={{width:"310px", boxShadow:'10px 10px 10px 10px #d4d4d4'}}>
+                        <div class="card  bg-base-100 " style={{ width: "310px", boxShadow: '10px 10px 10px 10px #d4d4d4' }}>
                             <div class="card-body">
                                 <h2 class="card-title">{d.name}</h2>
                                 <p>Ratings: {d.rating}/5</p>
